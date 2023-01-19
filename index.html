@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Our Project</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <div class="header"> 
+    <h1> Your Personal Financial Runner! </h1>
+    <h4> TechTogether Boston 2023 </h4>
+  </div>
+
+  <script src="script.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="budget">
+
+  <h2>Your Budget for This Month</h2>
+  
+  <div class="slidecontainer">
+    <input type="range" min="1" max="500" value="100" class="slider" id="myRange">
+    <p>$<span id="demo"></span></p>
+  </div>
+</div>
+
+<div class="expense">
+  <div id="myDIV" class="header">
+    <h2>Your Expenses</h2>
+    <input type="text" id="myInput" placeholder="What did you spend your money on? How much did you spend?">
+    <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
+  
+  <ul id="myUL">
+    <li>Sample: Groceries 10</li>
+  </ul>
+  
+  <script>
+  // Create a "close" button and append it to each list item
+  var myNodelist = document.getElementsByTagName("LI");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
+  
+  var close = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+
+  var sumnum = 0
+
+  function newElement() {
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("myInput").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+      sumnum += inputValue
+    }
+    document.getElementById("myInput").value = "";
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+  
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  }
+  </script>
+</div>
+  
+<center>
+  <marquee behavior="slide" direction="right" scrollamount="3">
+    <img src=
+"https://media3.giphy.com/media/25OC7fR4bg6lvxGrjI/giphy.gif?cid=6c09b9529012abe5de740ef026cb2f765ced17ceae5b1bc9&rid=giphy.gif&ct=s" 
+      alt="runner" class="center" style="height:100px"> 
+  </marquee>  
+      
+</center>
+  
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+<def class="table">
+  <table width=100% style='font-family: monospace;'>
+    <tr style='border-bottom: 1px solid #000;'>
+        <td>
+            |
+        </td><td>
+            |
+        </td><td>
+            |
+        </td><td>
+            |
+        </td><td>
+            |
+        </td><td width=1%>
+            |
+        </td>
+      <hr>
+    </tr>
+    <tr>
+        <td>
+            $0
+        </td><td>
+            $200
+        </td><td>
+            $400
+        </td><td>
+            $600
+        </td><td>
+            $800
+        </td><td width=1%>
+            $1000
+        </td>
+    </tr>
+</table>
+</def>
+
+<footer class="footer"> Updated on October 30th, 2022</footer>
+
+</body>
+</html>
